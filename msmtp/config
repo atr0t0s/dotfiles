@@ -1,0 +1,12 @@
+account violarisgeorge@gmail.com
+host smtp.gmail.com
+port 587
+from violarisgeorge@gmail.com
+user violarisgeorge@gmail.com
+passwordeval "pass violarisgeorge@gmail.com"
+auth on
+tls on
+tls_trust_file	/etc/ssl/cert.pem
+logfile /Users/georgeviolaris/.cache/msmtp/msmtp.log
+# tls_starttls
+

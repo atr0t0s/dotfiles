@@ -1,0 +1,4 @@
+nvim|nvim_buf_set_keymap|around
+nvim_bu|nvim_buf_set_keymap|around
+nvim_buf_s|nvim_buf_set_keymap|around
+t|telescope|around

@@ -10,3 +10,15 @@ tls_trust_file	/etc/ssl/cert.pem
 logfile /Users/georgeviolaris/.cache/msmtp/msmtp.log
 # tls_starttls
 
+account george@hatchworksvc.com
+host smtp.gmail.com
+port 465
+from george@hatchworksvc.com
+user george@hatchworksvc.com
+passwordeval "pass george@hatchworksvc.com"
+auth on
+tls on
+tls_trust_file	/etc/ssl/cert.pem
+logfile /Users/georgeviolaris/.cache/msmtp/msmtp.log
+tls_starttls off
+

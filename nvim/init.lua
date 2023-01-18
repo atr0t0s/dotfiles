@@ -79,6 +79,49 @@ require('packer').startup(function(use)
       }
     }
 
+  use {
+    "rest-nvim/rest.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("rest-nvim").setup({
+        -- Open request results in a horizontal split
+        result_split_horizontal = false,
+        -- Keep the http file buffer above|left when split horizontal|vertical
+        result_split_in_place = false,
+        -- Skip SSL verification, useful for unknown certificates
+        skip_ssl_verification = false,
+        -- Encode URL before making request
+        encode_url = true,
+        -- Highlight request on run
+        highlight = {
+          enabled = true,
+          timeout = 150,
+        },
+        result = {
+          -- toggle showing URL, HTTP info, headers at top the of result window
+          show_url = true,
+          show_http_info = true,
+          show_headers = true,
+          -- executables or functions for formatting response body [optional]
+          -- set them to false if you want to disable them
+          formatters = {
+            json = "jq",
+            html = function(body)
+              return vim.fn.system({"tidy", "-i", "-q", "-"}, body)
+            end
+          },
+        },
+        -- Jump to request line on run
+        jump_to_request = false,
+        env_file = '.env',
+        custom_dynamic_variables = {},
+        yank_dry_run = true,
+      })
+    end
+  }
+
+  use "numToStr/FTerm.nvim"
+
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then
@@ -158,6 +201,12 @@ vim.keymap.set('n', '<leader>m', '<Esc>:Neotree toggle<Return>')
 vim.keymap.set('n', '<leader>l', '<Esc><c-w>l')
 vim.keymap.set('n', '<leader>h', '<Esc><c-w>h')
 vim.keymap.set('n', '<leader>bd', '<Esc>:bprevious<bar>bdelete #<Return>')
+vim.keymap.set('n', '<leader>rs', '<Plug>RestNvim')
+vim.keymap.set('n', '<leader>rsp', '<Plug>RestNvimPreview')
+vim.keymap.set('n', '<leader>rsl', '<Plug>RestNvimLast')
+vim.keymap.set('n', '<leader>t', '<CMD>lua require("FTerm").toggle()<Return>')
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<Return>')
+
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -242,6 +291,14 @@ require('telescope').setup {
   },
 }
 
+require('FTerm').setup {
+  border = 'double',
+  dimensions = {
+    height = 0.9,
+    width = 0.9,
+  },
+}
+
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
@@ -266,7 +323,7 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'php', 'python', 'rust', 'typescript', 'prisma', 'help', 'vim' },
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'php', 'python', 'rust', 'typescript', 'prisma', 'help', 'vim', 'http', 'json' },
 
   highlight = { enable = true },
   indent = { enable = true, disable = { 'python' } },

@@ -49,3 +49,5 @@ export PATH=$PATH:/opt/homebrew/opt/mongodb-community@4.4/bin
 eval $(thefuck --alias)
 eval "$(rbenv init - zsh)"
 export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
+
+bindkey -v

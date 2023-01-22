@@ -20,9 +20,9 @@ setopt AUTO_CD AUTO_PUSHD PUSHD_IGNORE_DUPS PUSHD_SILENT PUSHD_TO_HOME
 alias aws-getips-staging='aws ec2 describe-instances --region '\''eu-west-1'\'' --profile '\''default'\'' --query '\''Reservations[].Instances[].[InstanceId,InstanceType,PublicIpAddress,PrivateIpAddress,LaunchTime,Tags[?Key==`Name`]| [0].Value]'\'' --output table'
 alias aws-getips-production='aws ec2 describe-instances --region '\''eu-central-1'\'' --profile '\''default'\'' --query '\''Reservations[].Instances[].[InstanceId,InstanceType,InstanceState,PublicIpAddress,PrivateIpAddress,LaunchTime,Tags[?Key==`Name`]| [0].Value]'\'' --output table'
 alias aws-get-endpoint-production-rds='aws rds --region eu-central-1 describe-db-instances --query "DBInstances[*].Endpoint.Address"'
-alias vim="nvim"
-alias v="nvim"
-alias vi="nvim"
+alias vim="CC=/opt/homebrew/opt/llvm/bin/clang nvim"
+alias v="CC=/opt/homebrew/opt/llvm/bin/clang nvim"
+alias vi="CC=/opt/homebrew/opt/llvm/bin/clang nvim"
 alias email="neomutt"
 alias syncmail="mbsync -a"
 

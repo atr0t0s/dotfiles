@@ -1,6 +1,14 @@
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
+vim.notify = require("notify")
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- Highlight current line
+vim.opt.cursorline = true
+
 -- Set highlight on search
 vim.o.hlsearch = false
 

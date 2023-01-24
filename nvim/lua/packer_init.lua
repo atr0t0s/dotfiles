@@ -45,10 +45,7 @@ require('packer').startup(function(use)
     after = 'nvim-treesitter',
   }
 
-  use {
-    'stevearc/aerial.nvim',
-    config = function() require('aerial').setup() end
-  }
+  use 'simrat39/symbols-outline.nvim'
 
   -- Git related plugins
   use 'tpope/vim-fugitive'
@@ -67,17 +64,53 @@ require('packer').startup(function(use)
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
-  vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+  -- vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+
+  -- use {
+  --  "nvim-neo-tree/neo-tree.nvim",
+  --    branch = "v2.x",
+  --    requires = {
+  --      "nvim-lua/plenary.nvim",
+  --      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+  --      "MunifTanjim/nui.nvim",
+  --    }
+  --  }
 
   use {
-    "nvim-neo-tree/neo-tree.nvim",
-      branch = "v2.x",
-      requires = { 
-        "nvim-lua/plenary.nvim",
-        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-        "MunifTanjim/nui.nvim",
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+  }
+
+  use {
+    'rcarriga/nvim-notify',
+    config = function ()
+      require("notify").setup {
+        stages = 'fade_in_slide_out',
+        background_colour = 'FloatShadow',
+        timeout = 3000,
       }
-    }
+      vim.notify = require('notify')
+    end
+  }
+
+ use({
+    "folke/noice.nvim",
+    config = function()
+      require("noice").setup({
+          -- add any options here
+      })
+    end,
+    requires = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+      }
+  })
 
   use {
     "rest-nvim/rest.nvim",
@@ -122,12 +155,23 @@ require('packer').startup(function(use)
 
   use "numToStr/FTerm.nvim"
 
+  use {'romgrk/barbar.nvim', wants = 'nvim-web-devicons'}
+
   use {'nvim-orgmode/orgmode', config = function()
     require('orgmode').setup{}
   end
   }
 
   use 'akinsho/org-bullets.nvim'
+
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      require('plugins.whichkey').setup()
+    end
+  }
 
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')

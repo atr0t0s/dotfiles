@@ -132,7 +132,7 @@ require('packer').startup(function(use)
     "folke/which-key.nvim",
     config = function()
       vim.o.timeout = true
-      vim.o.timeoutlen = 300
+      vim.o.timeoutlen = 400
       require('plugins.whichkey').setup()
     end
   }
@@ -158,6 +158,21 @@ require('packer').startup(function(use)
     config = function()
         require('neoclip').setup()
     end,
+  }
+
+  use { "luukvbaal/stabilize.nvim" }
+
+  use { "anuvyklack/windows.nvim",
+   requires = {
+      "anuvyklack/middleclass",
+      "anuvyklack/animation.nvim"
+   },
+   config = function()
+      vim.o.winwidth = 10
+      vim.o.winminwidth = 10
+      vim.o.equalalways = false
+      require('windows').setup()
+   end
   }
 
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua

@@ -64,17 +64,7 @@ require('packer').startup(function(use)
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', cond = vim.fn.executable 'make' == 1 }
 
-  -- vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-
-  -- use {
-  --  "nvim-neo-tree/neo-tree.nvim",
-  --    branch = "v2.x",
-  --    requires = {
-  --      "nvim-lua/plenary.nvim",
-  --      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-  --      "MunifTanjim/nui.nvim",
-  --    }
-  --  }
+  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 
   use {
     'nvim-tree/nvim-tree.lua',
@@ -114,43 +104,7 @@ require('packer').startup(function(use)
 
   use {
     "rest-nvim/rest.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("rest-nvim").setup({
-        -- Open request results in a horizontal split
-        result_split_horizontal = false,
-        -- Keep the http file buffer above|left when split horizontal|vertical
-        result_split_in_place = false,
-        -- Skip SSL verification, useful for unknown certificates
-        skip_ssl_verification = false,
-        -- Encode URL before making request
-        encode_url = true,
-        -- Highlight request on run
-        highlight = {
-          enabled = true,
-          timeout = 150,
-        },
-        result = {
-          -- toggle showing URL, HTTP info, headers at top the of result window
-          show_url = true,
-          show_http_info = true,
-          show_headers = true,
-          -- executables or functions for formatting response body [optional]
-          -- set them to false if you want to disable them
-          formatters = {
-            json = "jq",
-            html = function(body)
-              return vim.fn.system({"tidy", "-i", "-q", "-"}, body)
-            end
-          },
-        },
-        -- Jump to request line on run
-        jump_to_request = false,
-        env_file = '.env',
-        custom_dynamic_variables = {},
-        yank_dry_run = true,
-      })
-    end
+    requires = { "nvim-lua/plenary.nvim" }
   }
 
   use "numToStr/FTerm.nvim"
@@ -165,12 +119,45 @@ require('packer').startup(function(use)
   use 'akinsho/org-bullets.nvim'
 
   use {
+    'rmagatti/auto-session',
+    config = function()
+      require("auto-session").setup {
+        log_level = "error",
+        auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
+      }
+    end
+  }
+
+  use {
     "folke/which-key.nvim",
     config = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
       require('plugins.whichkey').setup()
     end
+  }
+
+  use {
+    "folke/twilight.nvim",
+    config = function()
+      require("twilight").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
+
+  use {
+    "AckslD/nvim-neoclip.lua",
+    requires = {
+    -- you'll need at least one of these
+    {'nvim-telescope/telescope.nvim'},
+    -- {'ibhagwan/fzf-lua'},
+    },
+    config = function()
+        require('neoclip').setup()
+    end,
   }
 
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua

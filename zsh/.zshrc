@@ -36,19 +36,18 @@ alias sshsgdb="sshpass -f ~/.pwlive ssh sg-live-db"
 alias sshphoenix="sshpass -f ~/.pwphoenix ssh phoenix"
 
 # Workspaces
-alias hm="cd ~"
-alias ls="lsd"
-alias ws="cd ~/workspaces"
-alias automations="cd ~/workspaces/automations/automation-deployments"
-alias backoffice="cd ~/workspaces/backoffice/spectre_backoffice"
-alias notes="cd ~/Documents/notes"
-alias crypto-gateway="cd ~/workspaces/payments/crypto-gateway"
-alias payments="cd ~/workspaces/payments/payments"
-alias praxis="cd ~/workspaces/payments/praxis"
-alias phoenix-api="cd ~/workspaces/phoenix/phoenix-api"
-alias phoenix-ui="cd ~/workspaces/phoenix/phoenix-ui"
-alias skillgaming="cd ~/workspaces/skillgaming"
-alias config="cd ~/.config/"
+alias ws="~/workspaces/ws.sh"
+
+# Applications
+lapps() {
+  lsd "/Applications/";
+}
+
+app() {
+  open "/Applications/$1.app";
+}
+
+alias qb="open -a /Applications/qutebrowser.app"
 
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 

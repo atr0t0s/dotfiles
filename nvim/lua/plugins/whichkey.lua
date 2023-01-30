@@ -5,7 +5,7 @@ function M.setup()
 
   local conf = {
     window = {
-      border = "single", -- none, single, double, shadow
+      border = "shadow", -- none, single, double, shadow
       position = "bottom", -- bottom, top
     },
   }

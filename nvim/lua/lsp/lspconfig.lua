@@ -55,6 +55,7 @@ local servers = {
   -- rust_analyzer = {},
   tsserver = {},
   prismals = {},
+  intelephense = {},
 
   sumneko_lua = {
     Lua = {

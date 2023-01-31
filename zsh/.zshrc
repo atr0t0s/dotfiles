@@ -34,9 +34,11 @@ alias sshsgpreprod="ssh sg-preprod"
 alias sshsg="sshpass -f ~/.pwlive ssh sg-live"
 alias sshsgdb="sshpass -f ~/.pwlive ssh sg-live-db"
 alias sshphoenix="sshpass -f ~/.pwphoenix ssh phoenix"
+alias sshpayments="ssh payments"
 
 # Workspaces
 alias ws="~/workspaces/ws.sh"
+alias db="~/workspaces/db.sh"
 
 # Applications
 lapps() {
@@ -44,7 +46,7 @@ lapps() {
 }
 
 app() {
-  open "/Applications/$1.app";
+  open -a "/Applications/$1.app";
 }
 
 alias qb="open -a /Applications/qutebrowser.app"

@@ -1,6 +1,7 @@
 .DS_Store
-android/
 abook/
+android/
+coc/
 configstore/
 raycast/
 spotify-tui/

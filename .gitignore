@@ -1,4 +1,5 @@
-android/.android/adbkey
+android/
+abook/
 weechat/sec.conf
 spotify-tui/
 tg/

@@ -1,7 +1,8 @@
+.DS_Store
 android/
 abook/
-weechat/sec.conf
+configstore/
+raycast/
 spotify-tui/
 tg/
-raycast/
-.DS_Store
+weechat/sec.conf

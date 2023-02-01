@@ -10,12 +10,10 @@
 
 -- Rewrite & Alias Defaults
   vim.keymap.set('i', 'jk', '<Esc>')
-  vim.keymap.set('v', 'jk', '<Esc>')
   vim.keymap.set('i', 'kj', '<Esc>')
-  vim.keymap.set('v', 'kj', '<Esc>')
   vim.keymap.set('n', '<leader>w', '<Esc>:w<Return>', { desc = 'Write file' })
   vim.keymap.set('n', '<leader>q', '<Esc>:q<Return>', { desc = 'Quit file' })
-  vim.keymap.set('n', '<leader>e', '<Esc>:qa<Return>', { desc = 'Quit Neovim' })
+  vim.keymap.set('n', '<leader>e', '<Esc>:NvimTreeClose<Return>:qa<Return>', { desc = 'Quit Neovim' })
 
 -- Dashboard
   vim.keymap.set('n', '<leader>*', '<Esc>:Alpha<Return>', { desc = 'Opens the Dashboard' })

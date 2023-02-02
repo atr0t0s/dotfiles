@@ -15,11 +15,8 @@
   vim.keymap.set('n', '<leader>q', '<Esc>:q<Return>', { desc = 'Quit file' })
   vim.keymap.set('n', '<leader>e', '<Esc>:NvimTreeClose<Return>:qa<Return>', { desc = 'Quit Neovim' })
 
--- Dashboard
-  vim.keymap.set('n', '<leader>*', '<Esc>:Alpha<Return>', { desc = 'Opens the Dashboard' })
-
 -- File Explorer
-  vim.keymap.set('n', '<leader>f', '<Esc>:NvimTreeToggle<Return>', { desc = 'Toggle Nvim-tree' })
+  vim.keymap.set('n', '\\', '<Esc>:NvimTreeToggle<Return>', { desc = 'Toggle Nvim-Tree' })
 
 -- Buffers
   vim.keymap.set('n', '<leader>x', '<Esc>:bprevious<bar>bdelete #<Return>', { desc = 'Close buffer' })

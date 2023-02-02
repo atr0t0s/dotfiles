@@ -1,4 +1,6 @@
 .DS_Store
+.qutebrowser/bookmarks/
+.qutebrowser/quickmarks
 abook/
 android/
 coc/

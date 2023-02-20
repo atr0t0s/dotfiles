@@ -6,6 +6,9 @@ vim.notify = require("notify")
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = 'nc'
+
 -- Highlight current line
 vim.opt.cursorline = true
 

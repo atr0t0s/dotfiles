@@ -14,9 +14,13 @@
   vim.keymap.set('n', '<leader>w', '<Esc>:w<Return>', { desc = 'Write file' })
   vim.keymap.set('n', '<leader>q', '<Esc>:q<Return>', { desc = 'Quit file' })
   vim.keymap.set('n', '<leader>e', '<Esc>:NvimTreeClose<Return>:qa<Return>', { desc = 'Quit Neovim' })
+  vim.keymap.set('n', 'gp', '`[v`]', { desc = 'Select last pasted text' })
 
 -- File Explorer
   vim.keymap.set('n', '\\', '<Esc>:NvimTreeToggle<Return>', { desc = 'Toggle Nvim-Tree' })
+
+-- Keymap search
+  vim.keymap.set('n', '<leader>\\', '<Esc>:Telescope keymaps<Return>', { desc = 'Search Keymaps' })
 
 -- Buffers
   vim.keymap.set('n', '<leader>x', '<Esc>:bprevious<bar>bdelete #<Return>', { desc = 'Close buffer' })
@@ -75,6 +79,8 @@
   vim.keymap.set('n', '<leader>sn', '<Esc>:Noice telescope<Return>', { desc = 'Noice messages' })
   -- Yank History
   vim.keymap.set('n', '<leader>y', '<CMD>lua require("telescope").extensions.neoclip.default()<Return>', { desc = 'Yank History' })
+  -- Resume Search
+  vim.keymap.set('n', '<leader>tr', '<Esc>:Telescope resume<Return>', { desc = 'Telescope Resume' })
 
 -- Symbols Outline
   vim.keymap.set('n', '<leader>o', '<Esc>:SymbolsOutline<Return>', { desc = "Outline" })

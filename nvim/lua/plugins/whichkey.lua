@@ -21,24 +21,24 @@ function M.setup()
 
   local mappings = {
 
-    b = {
-      name = "Buffer",
-      d = { "<Cmd>bd!<Cr>", "Close current buffer" },
-    },
-
-    z = {
-      name = "Packer",
-      c = { "<cmd>PackerCompile<cr>", "Compile" },
-      i = { "<cmd>PackerInstall<cr>", "Install" },
-      s = { "<cmd>PackerSync<cr>", "Sync" },
-      S = { "<cmd>PackerStatus<cr>", "Status" },
-      u = { "<cmd>PackerUpdate<cr>", "Update" },
-    },
-
-    g = {
-      name = "Git",
-      s = { "<cmd>Git<CR>", "Status" },
-    },
+    -- b = {
+    --   name = "Buffer",
+    --   d = { "<Cmd>bd!<Cr>", "Close current buffer" },
+    -- },
+    --
+    -- z = {
+    --   name = "Packer",
+    --   c = { "<cmd>PackerCompile<cr>", "Compile" },
+    --   i = { "<cmd>PackerInstall<cr>", "Install" },
+    --   s = { "<cmd>PackerSync<cr>", "Sync" },
+    --   S = { "<cmd>PackerStatus<cr>", "Status" },
+    --   u = { "<cmd>PackerUpdate<cr>", "Update" },
+    -- },
+    --
+    -- g = {
+    --   name = "Git",
+    --   s = { "<cmd>Git<CR>", "Status" },
+    -- },
   }
 
   whichkey.setup(conf)

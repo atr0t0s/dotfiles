@@ -6,7 +6,7 @@ font:
 window:
   decorations: transparent
   opacity: 0.9
-  startup_mode: SimpleFullscreen
+  startup_mode: Windowed
 colors:
   primary:
     background: '0x1f1f28'

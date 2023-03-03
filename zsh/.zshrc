@@ -164,8 +164,10 @@
     lapps() { lsd "/Applications/"; }                                                        #
 #                                                                                            #
     app() { open -a "/Applications/$1.app"; }                                                #
-
-    notes() { cd ~/cloud/Dropbox/notes && nvim; }
+#                                                                                            #
+    notes() { cd ~/cloud/Dropbox/notes && nvim; }                                            #
+#                                                                                            #
+    mux() { tmux attach-session -t tmux -c ~/; }                                             #
 #                                                                                            #
 #+# -------------------------------------- snoitcnuF ------------------------------------- #+#
 #=# ====================================================================================== #=#

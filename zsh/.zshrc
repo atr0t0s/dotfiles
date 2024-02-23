@@ -1,7 +1,13 @@
 #=# ====================================================================================== #=#
 #+# --------------------------------------- Setup ---------------------------------------- #+#
 #                                                                                            #
+    export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completio
     eval "$(rbenv init - zsh)"                                                               #
+	export PYENV_ROOT="$HOME/.pyenv"
+	command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+	eval "$(pyenv init -)"
     eval "$(pyenv init --path)"                                                              #
 #                                                                                            #
     if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then   #
@@ -14,6 +20,7 @@
     export PATH=$PATH:$HOME/Documents/ngrok-bin                                              #
     export PATH=$PATH:$HOME/.rbenv/shims                                                     #
     export ZSH="$HOME/.oh-my-zsh"                                                            #
+	export PATH=$PATH:/Applications/Julia-1.8.app/Contents/Resources/julia/bin
     export ANSIBLE_CONFIG=ansible.super.cfg                                                  #
 #                                                                                            #
     ZSH_THEME="powerlevel10k/powerlevel10k"                                                  #
@@ -78,6 +85,7 @@
     alias syncmail="mbsync -a"                                                               #
 #                                                                                            #
     alias qb="open -a /Applications/qutebrowser.app"                                         #
+	alias sentinel="redis-server /opt/homebrew/etc/redis-sentinel.conf --sentinel"           #
 #                                                                                            #
 #+# --------------------------------------- sesailA -------------------------------------- #+#
 #=# ====================================================================================== #=#

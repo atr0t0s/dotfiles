@@ -3,7 +3,9 @@
 require('telescope').setup {
   pickers = {
     buffers = {
-      initial_mode = "normal"
+      initial_mode = "normal",
+	  ignore_current_buffer = true,
+	  sort_lastused = true
     },
     find_files = {
       hidden = true,

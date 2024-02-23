@@ -10,3 +10,4 @@ spotify-tui/
 tg/
 yarn/
 weechat/sec.conf
+nvim/plugin

@@ -1,0 +1,8 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/settings
+title: George Violaris
+
+providers:
+  openweathermap: 0b065b9ccec99ff86f148e3a7e1ab380
+  weatherapi: weatherapiapikey

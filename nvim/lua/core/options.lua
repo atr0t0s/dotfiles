@@ -9,6 +9,9 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.conceallevel = 2
 vim.opt.concealcursor = 'nc'
 
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+
 -- Highlight current line
 vim.opt.cursorline = true
 

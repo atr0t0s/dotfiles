@@ -23,7 +23,7 @@
   vim.keymap.set('n', '<leader>\\', '<Esc>:Telescope keymaps<Return>', { desc = 'Search Keymaps' })
 
 -- Buffers
-  vim.keymap.set('n', '<leader>x', '<Esc>:bprevious<bar>bdelete #<Return>', { desc = 'Close buffer' })
+  vim.keymap.set('n', '<leader>x', '<Esc>:bp<bar>sp<bar>bn<bar>bd<Return>', { desc = 'Close buffer' })
   vim.keymap.set('n', '<leader>[', '<Esc>:bprevious<Return>', { desc = 'Previous buffer' })
   vim.keymap.set('n', '<leader>]', '<Esc>:bnext<Return>', { desc = 'Next buffer' })
 

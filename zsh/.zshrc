@@ -17,11 +17,14 @@
     plugins=(web $plugins)                                                                   #
 #                                                                                            #
     export PATH=$PATH:$HOME/Library/Python/3.8/bin                                           #
-    export PATH=$PATH:$HOME/Documents/ngrok-bin                                              #
+    export PATH=$PATH:/opt/homebrew/bin/ngrok                                              #
     export PATH=$PATH:$HOME/.rbenv/shims                                                     #
     export ZSH="$HOME/.oh-my-zsh"                                                            #
 	export PATH=$PATH:/Applications/Julia-1.8.app/Contents/Resources/julia/bin
     export ANSIBLE_CONFIG=ansible.super.cfg                                                  #
+	export DENO_INSTALL="/Users/georgeviolaris/.deno"
+	export PATH="$DENO_INSTALL/bin:$PATH"
+
 #                                                                                            #
     ZSH_THEME="powerlevel10k/powerlevel10k"                                                  #
 #                                                                                            #
@@ -124,6 +127,8 @@
     alias {db,database}="~/scripts/db.sh"                                                    #
 #                                                                                            # 
     alias {sshs,remote}="~/scripts/remote.sh"                                                #
+
+	alias encrypt="~/scripts/encrypt.sh"
 #                                                                                            #
 #+# --------------------------------------- stpircS -------------------------------------- #+#
 #=# ====================================================================================== #=#
@@ -176,6 +181,8 @@
     notes() { cd ~/cloud/Dropbox/notes && nvim; }                                            #
 #                                                                                            #
     mux() { tmux attach-session -t tmux -c ~/; }                                             #
+
+	nmux() { tmux new -s tmux -c ~/; }
 #                                                                                            #
 #+# -------------------------------------- snoitcnuF ------------------------------------- #+#
 #=# ====================================================================================== #=#

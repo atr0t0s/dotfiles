@@ -48,12 +48,15 @@ end
 --
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
+
+
 local servers = {
   -- clangd = {},
   gopls = {},
   pyright = {},
   -- rust_analyzer = {},
   tsserver = {},
+  denols = {},
   prismals = {},
   intelephense = {},
 
@@ -84,14 +87,40 @@ mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
 }
 
+local nvim_lsp = require('lspconfig')
+
 mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-    }
-  end,
+  	function(server_name)
+		nvim_lsp[server_name].setup {
+			capabilities = capabilities,
+			on_attach = on_attach,
+			settings = servers[server_name],
+		}
+	end,
+
+	['tsserver'] = function ()
+		nvim_lsp.tsserver.setup {
+			capabilities = capabilities,
+			on_attach = on_attach,
+			root_dir = nvim_lsp.util.root_pattern("package.json"),
+			settings = servers.tsserver,
+			single_file_support = false
+
+		}
+	end,
+
+	['denols'] = function ()
+		nvim_lsp.denols.setup {
+			capabilities = capabilities,
+			on_attach = on_attach,
+			root_dir = nvim_lsp.util.root_pattern("deno.json"),
+			init_options = {
+				enable = true,
+				lint = true
+			},
+			settings = servers.denols
+		}
+	end
 }
 
 -- Turn on lsp status information

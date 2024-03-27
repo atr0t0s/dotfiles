@@ -6,7 +6,9 @@
 
 
 # -- windows & pane creation ---------------------------------------------------
-
+# remove window selection number display timeout
+bind -T prefix q display-panes -d 0
+set-option -sa terminal-features ',xterm-kitty:RGB' 
 # new window retains current path, possible values are:
 #   - true
 #   - false (default)

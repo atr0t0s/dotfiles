@@ -24,6 +24,7 @@
     export ANSIBLE_CONFIG=ansible.super.cfg                                                  #
 	export DENO_INSTALL="/Users/georgeviolaris/.deno"
 	export PATH="$DENO_INSTALL/bin:$PATH"
+	#export TERM=xterm-256color
 
 #                                                                                            #
     ZSH_THEME="powerlevel10k/powerlevel10k"                                                  #
@@ -186,3 +187,10 @@
 #                                                                                            #
 #+# -------------------------------------- snoitcnuF ------------------------------------- #+#
 #=# ====================================================================================== #=#
+
+# bun completions
+[ -s "/Users/georgeviolaris/.bun/_bun" ] && source "/Users/georgeviolaris/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

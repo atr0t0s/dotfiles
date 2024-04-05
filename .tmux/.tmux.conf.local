@@ -4,6 +4,12 @@
 #         without any warranty.
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
 
+set-option -g status-interval 5
+set-option -g automatic-rename on
+set-option -g automatic-rename-format '#{b:pane_current_path}'
+
+# When I kill a session don't close tmux if other sessions are available
+set-option -g detach-on-destroy off
 
 # -- windows & pane creation ---------------------------------------------------
 # remove window selection number display timeout

@@ -11,3 +11,5 @@ tg/
 yarn/
 weechat/sec.conf
 nvim/plugin
+linode-cli
+mutt/accounts/

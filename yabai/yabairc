@@ -35,3 +35,5 @@ yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^QuickTime Player$" manage=off
 yabai -m rule --add app="^Phoenix$" manage=off
 yabai -m rule --add app="^Electron$" manage=off
+yabai -m rule --add app="^Sequel Ace$" manage=off
+yabai -m rule --add app="^App Store$" manage=off

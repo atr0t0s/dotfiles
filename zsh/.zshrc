@@ -22,6 +22,7 @@
   export ANSIBLE_CONFIG=ansible.super.cfg
   export DENO_INSTALL="/Users/georgeviolaris/.deno"
   export PATH="$DENO_INSTALL/bin:$PATH"
+  export PATH=$PATH:$HOME/.composer/vendor/hjbdev/pvm
 # export TERM=xterm-256color
 #  
   ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -32,10 +33,14 @@
 #  
   source $ZSH/oh-my-zsh.sh
 #  
+  EDITOR='nvim'
+#
   [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 #  
   export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
   export PATH=$PATH:/opt/homebrew/opt/mongodb-community@4.4/bin
+  export PATH="$HOME/.composer/vendor/bin:$PATH"
+
 #  
   eval $(thefuck --alias)
   eval "$(rbenv init - zsh)"
@@ -85,6 +90,10 @@
 #  
   alias astro="NVIM_APPNAME=AstroNvim nvim"
 #  
+  alias linode="linode-cli linodes ls"
+#--
+  alias ls="lsd"
+#--
   function nvims() {
     items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim")
     config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
@@ -104,7 +113,13 @@
 #  
   bindkey -s ^k "~/scripts/fzf-dir-vim\n"
 #
+  bindkey -s ^x "~/scripts/home\n"
+#
   [ -s "/Users/georgeviolaris/.bun/_bun" ] && source "/Users/georgeviolaris/.bun/_bun"
   export BUN_INSTALL="$HOME/.bun"
   export PATH="$BUN_INSTALL/bin:$PATH"
 #
+  export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+  export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+  export AR=/opt/homebrew/opt/llvm/bin/llvm-ar

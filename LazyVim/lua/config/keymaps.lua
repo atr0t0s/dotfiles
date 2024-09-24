@@ -18,3 +18,14 @@ vim.keymap.set("n", "<leader>tr", "<Esc>:Telescope resume<Return>", { desc = "Te
 
 -- Tmux
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww ~/scripts/tmux-sessionizer<CR>")
+vim.keymap.set("n", "<C-x>", "<cmd>silent !tmux neww ~/scripts/home<CR>")
+
+-- Harpoon
+local harpoon = require("harpoon")
+harpoon:setup()
+vim.keymap.set("n", "<leader>a", function()
+  harpoon:list():add()
+end)
+-- vim.keymap.set("n", "<C-h>", function()
+-- harpoon.ui:toggle_quick_menu(harpoon:list())
+-- end)

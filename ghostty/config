@@ -1,0 +1,6 @@
+font-family = "Fira Code"
+font-size = 16
+font-thicken = true
+fullscreen = false
+macos-titlebar-style = hidden
+macos-non-native-fullscreen = true

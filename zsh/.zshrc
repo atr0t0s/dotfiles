@@ -33,13 +33,14 @@
 #  
   source $ZSH/oh-my-zsh.sh
 #  
-  EDITOR='nvim'
+  EDITOR='NVIM_APPNAME=LazyVim nvim'
 #
   [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 #  
   export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
   export PATH=$PATH:/opt/homebrew/opt/mongodb-community@4.4/bin
   export PATH="$HOME/.composer/vendor/bin:$PATH"
+  export NVIM_APPNAME="LazyVim"
 
 #  
   eval $(thefuck --alias)
@@ -93,7 +94,9 @@
   alias linode="linode-cli linodes ls"
 #--
   alias ls="lsd"
-#--
+  
+  alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+  
   function nvims() {
     items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim")
     config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
@@ -111,6 +114,7 @@
 #  
   bindkey -s ^f "~/scripts/tmux-sessionizer\n"
 #  
+#
   bindkey -s ^k "~/scripts/fzf-dir-vim\n"
 #
   bindkey -s ^x "~/scripts/home\n"
@@ -123,3 +127,5 @@
   export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
   export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
   export AR=/opt/homebrew/opt/llvm/bin/llvm-ar
+
+. "$HOME/.local/bin/env"
